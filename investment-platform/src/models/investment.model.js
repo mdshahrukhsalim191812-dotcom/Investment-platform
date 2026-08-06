@@ -23,13 +23,19 @@ const investmentSchema = new mongoose.Schema(
 
             roiPercentage: {
                 type: Number,
-                required: true
+                required: true,
+
             },
 
-            durationInDays: {
+            durationDays: {
                 type: Number,
                 required: true
             }
+        },
+
+        earnedROI: {
+            type: Number,
+            default: 0
         },
 
         startDate: {

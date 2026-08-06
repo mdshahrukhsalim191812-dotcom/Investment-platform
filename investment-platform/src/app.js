@@ -29,4 +29,11 @@ import referralRoutes from "./routes/referral.routes.js";
 
 app.use("/api/referrals", referralRoutes);
 
+/* 
+investment api's
+*/
+import investmentRoutes from "./routes/investment.routes.js";
+
+app.use("/api/investments", investmentRoutes);
+
 export default app;
