@@ -9,6 +9,12 @@ const transactionSchema = new mongoose.Schema(
             index: true,
         },
 
+        amount: {
+            type: Number,
+            required: true,
+            min: 0,
+        },
+
         type: {
             type: String,
             enum: [
@@ -20,12 +26,6 @@ const transactionSchema = new mongoose.Schema(
             ],
             required: true,
             index: true,
-        },
-
-        amount: {
-            type: Number,
-            required: true,
-            min: 0,
         },
 
         balanceAfter: {

@@ -36,4 +36,11 @@ import investmentRoutes from "./routes/investment.routes.js";
 
 app.use("/api/investments", investmentRoutes);
 
+/* 
+ROI api's
+*/
+import roiRoutes from "./routes/roi.routes.js";
+
+app.use("/api/roi", roiRoutes);
+
 export default app;
