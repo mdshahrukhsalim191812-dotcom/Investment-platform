@@ -15,16 +15,21 @@ const investmentSchema = new mongoose.Schema(
             min: 1,
         },
 
-        planName: {
-            type: String,
-            required: true,
-            trim: true,
-        },
+        plan: {
+            name: {
+                type: String,
+                required: true
+            },
 
-        roiPercentage: {
-            type: Number,
-            required: true,
-            min: 0,
+            roiPercentage: {
+                type: Number,
+                required: true
+            },
+
+            durationInDays: {
+                type: Number,
+                required: true
+            }
         },
 
         startDate: {

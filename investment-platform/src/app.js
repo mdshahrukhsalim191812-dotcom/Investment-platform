@@ -22,4 +22,11 @@ import authRoutes from "./routes/auth.routes.js";
 
 app.use("/api/auth", authRoutes);
 
+/* 
+referral api's
+*/
+import referralRoutes from "./routes/referral.routes.js";
+
+app.use("/api/referrals", referralRoutes);
+
 export default app;
