@@ -23,6 +23,8 @@ A production-ready backend built with Node.js, Express.js, MongoDB, and JWT auth
 - bcrypt
 - helmet
 - node-cron
+- zod
+- crypto
 
 ## Project Structure
 
