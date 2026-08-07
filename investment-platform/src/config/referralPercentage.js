@@ -1,0 +1,1 @@
+const LEVEL_PERCENTAGES = [5, 3, 2];

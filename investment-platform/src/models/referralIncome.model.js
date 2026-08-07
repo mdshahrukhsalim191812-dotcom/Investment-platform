@@ -2,14 +2,14 @@ import mongoose from "mongoose";
 
 const referralIncomeSchema = new mongoose.Schema(
     {
-        receiver: {
+        fromUser: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "users",
             required: true,
             index: true,
         },
 
-        sourceUser: {
+        toUser: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "users",
             required: true,
@@ -27,6 +27,11 @@ const referralIncomeSchema = new mongoose.Schema(
             type: Number,
             required: true,
             min: 1,
+        },
+
+        percetage: {
+            type: Number,
+            required: true
         },
 
         amount: {
@@ -50,8 +55,8 @@ const referralIncomeSchema = new mongoose.Schema(
 
 referralIncomeSchema.index(
     {
-        receiver: 1,
-        sourceUser: 1,
+        fromUser: 1,
+        toUser: 1,
         investment: 1,
         level: 1,
     },
@@ -59,7 +64,7 @@ referralIncomeSchema.index(
 );
 
 referralIncomeSchema.index({
-    receiver: 1,
+    fromUser: 1,
     createdAt: -1,
 });
 

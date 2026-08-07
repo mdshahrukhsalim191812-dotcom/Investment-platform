@@ -1,5 +1,7 @@
 import investmentModel from "../models/investment.model.js";
+import transactionModel from "../models/transaction.model.js";
 import { PLANS } from "../config/plan.js";
+import userModel from "../models/user.model.js";
 
 export const createInvestmentService = async (
     userId,
@@ -31,21 +33,36 @@ export const createInvestmentService = async (
 
     const investment =
         await investmentModel.create({
-
             user: userId,
-
             amount,
-
             plan: {
                 name: selectedPlan.name,
                 roiPercentage: selectedPlan.roiPercentage,
                 durationDays: selectedPlan.durationDays,
             },
-
             startDate,
-
             endDate,
         });
+
+    const currentUser = await investmentModel.find({
+        user: userId,
+        status: "ACTIVE"
+    });
+    console.log(currentUser);
+
+
+    let totalBalance = currentUser.reduce((sum, investment) => {
+        sum + investment.amount, 0
+    });
+    console.log(totalBalance);
+
+
+    /* await transactionModel.create({
+        user: userId,
+        amount,
+        type: "INVESTMENT",
+        balanceAfter: 
+    }) */
 
     return investment;
 };
